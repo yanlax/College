@@ -1,0 +1,53 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+	double A = 2;
+	double B = 3;
+	double accuracy = 0.0001;
+	double fA = 0;
+	double fB = 0;
+	double x = 0;
+	double fX = 0;
+	double newX = 0;
+	double timeX = 0;
+	double timeFX = 0;
+
+	cout << "e^x - 10 = 0";
+	cout << "\na = " << A;
+	cout << "\nb = " << B;
+	cout << "\nE = " << accuracy << endl;
+
+	fA = exp(A) - 10;
+	cout << "F(a) = " << fA << endl;
+	fB = exp(B) - 10;
+	cout << "F(b) = " << fB << endl;
+
+	if (fA * fB < 0)
+	{
+		x = A - (((fA) * (B - A)) / (fB - fA));
+		cout << "x0 = " << x << endl;
+		fX = exp(x) - 10;
+		cout << "F(x)" << fX << endl;
+	}
+
+	timeX = x;
+	timeFX = fX;
+	for (;;)
+	{
+		newX = timeX - (((timeFX) * (B - x)) / (fB + fX));
+		fX = exp(newX) - 10;
+		timeX = newX;
+		timeFX = fX;
+
+		if (abs(fX) <= accuracy)
+		{
+			cout << "\nx = " << newX << endl;
+			break;
+		}
+	}
+	system("pause");
+}
+
