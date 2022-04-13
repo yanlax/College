@@ -1,0 +1,4 @@
+﻿  lot.cpp
+D:\bin\Student\Nizamov\lot\randomMassive.h(7,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\bin\Student\Nizamov\lot\printArray.h(4,1): error C2084: функция "void printArray(int [],int)" уже имеет текст реализации
+D:\bin\Student\Nizamov\lot\printArray.h(3): message : см. предыдущее определение "printArray"
