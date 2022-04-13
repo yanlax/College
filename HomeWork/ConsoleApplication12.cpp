@@ -1,4 +1,3 @@
-#include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
 
@@ -20,21 +19,26 @@ void printNewArray(int array[], int size)
 	}
 }
 
-void minAndMax(int array[], int size)
+void sortArray(int array[], int size)
 {
-	int max = array[0];
-	int min = array[0];
-
-	for (int i = 1; i < 10; i++)
+	for (int j = 0; j < size; j++)
 	{
-		if (array[i] > max)
-			max = array[i];
-		else if (array[i] < min)
-			min = array[i];
-	}
-	array[0] = max;
-	array[size] = min;
+		int min = 0;
+		int max = 0;
 
+		for (int i = 0; i < size; i++)
+		{
+			if (array[i] < array[i + 1])
+			{
+				max = array[i + 1];
+				min = array[i];
+
+				array[i] = max;
+				array[i + 1] = min;
+			}
+		}
+
+	}
 }
 
 int main()
@@ -60,23 +64,7 @@ int main()
 		}
 	}
 	printArray(massive, size);
-	//minAndMax(massive, size);
-	/*int min = 0, max = 0;
-
-	for (int i = 0; i < size; i++)
-	{
-		if (massive[i] < massive[min])
-			min = i;
-
-		if (massive[i] > massive[max])
-			max = i;
-	}
-
-	int tmp = massive[max];
-	massive[max] = massive[min];
-	massive[min] = tmp;*/
-	sort(massive, massive + size, greater<int>());
-
+	sortArray(massive, size);
 	printNewArray(massive, size);
 
 	system("pause");
